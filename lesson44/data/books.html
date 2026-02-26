@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Office Booklender</title>
+    <link rel="stylesheet" href="css/freemarker.css">
+</head>
+<body>
+<div class="container">
+    <h1>Список книг в офисе</h1>
+    <div class="flex-col">
+        <#list books as book>
+        <div class="row flex" style="border-bottom: 1px solid #ccc; padding: 10px;">
+            <div class="column">
+                <img src="${book.image}" alt="${book.title}" style="width: 50px;">
+            </div>
+            <div class="column">
+                <strong>${book.title}</strong><br>
+                <small>${book.author}</small>
+            </div>
+            <div class="column">
+                Статус:
+                <span style="color: ${ (book.status == 'AVAILABLE')?string('green', 'red') }">
+                            ${book.status}
+                        </span>
+            </div>
+        </div>
+    </#list>
+</div>
+</div>
+</body>
+</html>
